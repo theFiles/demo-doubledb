@@ -1,0 +1,45 @@
+spring:
+  datasource:
+#    type: com.alibaba.druid.pool.DruidDataSource
+
+    base:
+      # mysql-5使用： com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost:3306/zfposp?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      # druid 配置
+      initial-size: 5
+      max-active: 20
+      min-idle: 3
+      #      配置监控统计拦截器 日志配置  Slf4j  logback
+      #      stat监控数据库性能
+      #      wall  用于防火墙
+      #      日志先关 slf4j logback  log4j  log4j2
+      filters: stat,wall,slf4j
+      web-stat-filter:
+        enabled: true
+        url-pattern:  '/*'
+        # 排除不拦截的 请求
+        exclusions: "*.js,*.png,/druid/*"
+
+    dic:
+      # mysql-5使用： com.mysql.jdbc.Driver
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      username: root
+      password: 123456
+      url: jdbc:mysql://localhost:3306/pos2-saas?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+      # druid 配置
+      initial-size: 5
+      max-active: 20
+      min-idle: 3
+      #      配置监控统计拦截器 日志配置  Slf4j  logback
+      #      stat监控数据库性能
+      #      wall  用于防火墙
+      #      日志先关 slf4j logback  log4j  log4j2
+      filters: stat,wall,slf4j
+      web-stat-filter:
+        enabled: true
+        url-pattern:  '/*'
+        # 排除不拦截的 请求
+        exclusions: "*.js,*.png,/druid/*"
